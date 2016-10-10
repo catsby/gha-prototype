@@ -1,0 +1,18 @@
+version: "2"
+
+services:
+  app:
+    build: ./
+    volumes:
+      - .:/go/src/github.com/catsby/gha-prototype
+    working_dir: /go/src
+    command: ./gha-prototype
+    # links:
+    #   - redis
+    environment:
+      REDIS_URL: redis:6379
+      GH_EMAIL: clint@email.com
+      GH_TOKEN: codething
+  
+  # redis:
+  #   image: redis:alpine
